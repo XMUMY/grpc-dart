@@ -401,7 +401,7 @@ void validateHttpStatusAndContentType(
 
 GrpcError? grpcErrorFromTrailers(Map<String, String> trailers) {
   final status = trailers['grpc-status'];
-  final statusCode = status != null ? int.parse(status) : StatusCode.unknown;
+  final statusCode = status != null ? int.parse(status) : StatusCode.ok;
 
   if (statusCode != StatusCode.ok) {
     final message = _tryDecodeStatusMessage(trailers['grpc-message']);
